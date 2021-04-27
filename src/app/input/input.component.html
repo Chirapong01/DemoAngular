@@ -1,41 +1,36 @@
-<div class="card" style="padding: 10px;">
-    <button class="btn btn-info" (click)="onclick()">click</button>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">@</span>
+<form [formGroup]="forminput" (ngSubmit)="onsubmit()">
+    <div class="card" style="overflow: hidden;">
+        <div class="card-header bg-primary">
+            <p class="h3 text-center text-light mt-2">กรอกข้อมูล</p>
         </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-    </div>
+        <div class="card-body">
+            <p class="text-left">StudentName</p>
+            <input formControlName="studentName" type="text" class="form-control " [ngClass]="{'is-invalid':submit && formcontrol.studentName.errors}">
+            <div *ngIf="submit&&formcontrol.studentName.errors" class="invalid-feedback">
+                <div *ngIf="formcontrol.studentName.errors.required"> required username</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="text-left mt-3">StudentTel</p>
+                    <input formControlName="studentTel" type="text" class="form-control " [ngClass]="{'is-invalid':submit && formcontrol.studentTel.errors}">
+                    <div *ngIf="submit&&formcontrol.studentTel.errors" class="invalid-feedback">
+                        <div *ngIf="formcontrol.studentTel.errors.required">required password</div>
+                        <div *ngIf="formcontrol.studentTel.errors.pattern">number only</div>
+                    </div>
 
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                </div>
+                <div class="col">
+                    <p class="text-left mt-3">StudentAge</p>
+                    <input formControlName="studentAge" type="text" class="form-control " [ngClass]="{'is-invalid':submit && formcontrol.studentAge.errors}">
+                    <div *ngIf="submit&&formcontrol.studentAge.errors" class="invalid-feedback">
+                        <div *ngIf="formcontrol.studentAge.errors.required">required password</div>
+                        <div *ngIf="formcontrol.studentAge.errors.pattern">number only</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button class="btn bg-primary text-light" type="submit">submit</button>
         </div>
     </div>
-
-    <label for="basic-url">Your vanity URL</label>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-        </div>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-    </div>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">$</span>
-        </div>
-        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-        <div class="input-group-append">
-            <span class="input-group-text">.00</span>
-        </div>
-    </div>
-
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">With textarea</span>
-        </div>
-        <textarea class="form-control" aria-label="With textarea"></textarea>
-    </div>
-</div>
+</form>

@@ -1,0 +1,65 @@
+<div class="card">
+    <div class="card-header bg-primary">
+        <p class="h3 text-center text-light mt-2">Table</p>
+    </div>
+    <div class="card-body" style="padding:0">
+        <table class="table  table-bordered text-center">
+            <thead>
+                <tr>
+                    <th scope="col"> ID</th>
+                    <th scope="col"> name</th>
+                    <th scope="col"> Tel</th>
+                    <th scope="col"> Age</th>
+                    <th scope="col"> Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of dataStudent">
+                    <th scope="row"> {{i.studentId}} </th>
+                    <td>{{i.studentName}}</td>
+                    <td>{{i.studentTel}}</td>
+                    <td>{{i.studentAge}}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="editDataStudent(i.studentId)" data-toggle="modal" data-target="#exampleModalCenter">
+                            Edit</button>
+                        <button class="btn btn-danger ml-3" (click)="deleteDataStudent(i.studentId)"> Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form [formGroup]="formedit" (ngSubmit)="submiteditDataStudent()">
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="card">
+                                <div class="card-header">
+                                    Edit
+                                </div>
+                                <div class="card-body">
+                                    <p class="text-left">studentName</p>
+                                    <input formControlName="studentName" type="text" class="form-control mb-2">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="text-left">studentTel</p>
+                                            <input formControlName="studentTel" type="text" class="form-control">
+                                        </div>
+                                        <div class="col">
+                                            <p class="text-left">studentAge</p>
+                                            <input formControlName="studentAge" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary mr-3">Save changes</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
