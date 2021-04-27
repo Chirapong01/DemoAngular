@@ -1,6 +1,9 @@
-import { Variable } from '@angular/compiler/src/render3/r3_ast';
+
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
+import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { CallapiService } from '../service/callapi.service';
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
@@ -8,38 +11,37 @@ import Swal from 'sweetalert2';
 })
 export class InputComponent implements OnInit {
 
-  constructor() { }
-  ar:any ;
-  ngOnInit(): void {
-  }
-  onclick(){
-    Swal.mixin({
-      input: 'text',
-      confirmButtonText: 'Next &rarr;',
-      showCancelButton: true,
-      progressSteps: ['1', '2', '3']
-    }).queue([
-      {
-        title: 'Question 1',
-        text: 'Chaining swal2 modals is easy'
-      },
-      'Question 2',
-      'Question 3'
-    ]).then((result:any) => {
-      if (result.value) {
-        this.ar = JSON.stringify(result.value)
-        Swal.fire({
-          title: 'All done!',
-          html: `
-            Your answers:
-            <pre><code>${this.ar}</code></pre>
-          `,
-          confirmButtonText: 'Lovely!'
-        })
+  submit: boolean = false;
+  forminput: any;
+  constructor(public formbuilder: FormBuilder, public callapi: CallapiService) {
 
-       
-       console.log(this.ar);
-      }
+    this.forminput = this.formbuilder.group({
+      studentID:[null],
+      studentName: [null, Validators.required],
+      studentTel: [null, [Validators.required, Validators.pattern('[0-9]*')]],
+      studentAge: [null, [Validators.required, Validators.pattern('[0-9]*')]]
     })
+  }
+  get formcontrol() {
+    return this.forminput.controls;
+  }
+  onsubmit() {
+    this.submit = true;
+
+    if (this.forminput.valid) {
+     
+      this.callapi.addDataStudent(this.forminput.value).subscribe(it =>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        console.log(this.forminput.value);
+      })
+    }
+  }
+  ngOnInit(): void {
   }
 }

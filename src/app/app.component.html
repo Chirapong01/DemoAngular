@@ -1,6 +1,6 @@
 <div class="side-bar bg-success">
     <div class="accordion" id="accordionExample">
-        <div class="side-group " style="margin-top: 80px;">
+        <div class="side-group" style="margin-top: 80px;">
             <div class="btn-group">
                 <button class="btn btn-link btn-block text-warning text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               Input Item
@@ -8,7 +8,7 @@
             </div>
         </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light">
+            <div class="card-body bg-light" style="margin: 0;">
                 <p class="text-secondary" type="button" routerLink="input">INPUT</p>
             </div>
         </div>
@@ -20,8 +20,8 @@
             </div>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light">
-                Output
+            <div class="card-body bg-light" style="margin: 0;">
+                <p class="text-secondary" type="button" routerLink="output"> OUTPUT </p>
             </div>
         </div>
         <div class="side-group">
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light">
+            <div class="card-body bg-light" style="margin: 0;">
                 Edit
             </div>
         </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light">
+            <div class="card-body bg-light" style="margin: 0;">
                 Delete
             </div>
         </div>
@@ -56,29 +56,18 @@
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class=" collapse navbar-collapse " id="navbarSupportedContent ">
+    <div class=" collapse navbar-collapse mt-2" id="navbarSupportedContent ">
         <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active ">
+            <li class="nav-item active ml-3">
                 <a class="nav-link text-light ml-3 h5" href="# ">Home </a>
             </li>
-            <li class="nav-item active ">
+            <li class="nav-item active ml-3">
                 <a class="nav-link text-light h5" href="# ">Link</a>
-            </li>
-            <li class="nav-item dropdown ">
-                <a class="nav-link dropdown-toggle active text-light h5" href="# " id="navbarDropdown " role="button " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
-        Dropdown
-      </a>
-                <div class="dropdown-menu  " aria-labelledby="navbarDropdown ">
-                    <a class="dropdown-item " href="# ">Action</a>
-                    <a class="dropdown-item " href="# ">Another action</a>
-                    <div class="dropdown-divider "></div>
-                    <a class="dropdown-item " href="# ">Something else here</a>s
-                </div>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 ">
             <input class="form-control mr-sm-2 " type="search " placeholder="Search " aria-label="Search ">
-            <button class="btn btn-outline-dark my-2 my-sm-0 text-light" type="submit ">Search</button>
+            <button class="btn btn-outline-light  text-light" type="submit ">Search</button>
         </form>
     </div>
 </nav>
