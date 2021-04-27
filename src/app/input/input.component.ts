@@ -27,9 +27,7 @@ export class InputComponent implements OnInit {
   }
   onsubmit() {
     this.submit = true;
-
     if (this.forminput.valid) {
-     
       this.callapi.addDataStudent(this.forminput.value).subscribe(it =>{
         Swal.fire({
           position: 'center',
