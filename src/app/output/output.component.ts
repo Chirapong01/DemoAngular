@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CallapiService } from '../service/callapi.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, Validators } from '@angular/forms';
-import { student } from '../model/classrooms';
+
 
 @Component({
   selector: 'app-output',
@@ -11,18 +11,16 @@ import { student } from '../model/classrooms';
 })
 export class OutputComponent implements OnInit {
   formedit: any
-  id:any
-  dataStudent: any;
+  dataStudent: any
+  dataEdit: any
   constructor(public callapi: CallapiService, public formbuilder: FormBuilder) {
     this.formedit = this.formbuilder.group({
-      studentID: null,
+      studentId: null,
       studentName: [null, Validators.required],
       studentTel: [null, [Validators.required, Validators.pattern('[0-9]*')]],
       studentAge: [null, [Validators.required, Validators.pattern('[0-9]*')]]
     })
   }
-
-
 
   ngOnInit(): void {
     this.getallStudent()
@@ -36,7 +34,7 @@ export class OutputComponent implements OnInit {
   }
   deleteDataStudent(id: String) {
     console.log(id);
-    
+
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -56,20 +54,26 @@ export class OutputComponent implements OnInit {
       }
     })
   }
-  
-  editDataStudent(student:String) {
-    this.id = student;
-    console.log(this.id);
-    
+
+  editDataStudent(studentID: String) {
+    this.callapi.getDataStudentById(studentID).subscribe(it => {
+      this.dataEdit = it;
+    })
+
   }
   submiteditDataStudent() {
-    this.formedit.value.studentID = this.id
-    console.log(this.formedit.value);
+    this.formedit.value.studentID = this.dataEdit.studentId
     this.callapi.editDataStudent(this.formedit.value).subscribe(i => {
+      Swal.fire(
+        { title: 'Edit success',
+          position: 'center',
+          icon: 'success',
+          timer: 1000
+        }
+      )
       this.getallStudent()
     })
 
   }
-
 
 }

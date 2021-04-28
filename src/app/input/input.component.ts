@@ -11,24 +11,48 @@ import { CallapiService } from '../service/callapi.service';
 })
 export class InputComponent implements OnInit {
 
-  submit: boolean = false;
-  forminput: any;
+  submitStudent: boolean = false
+  submitTeacher: boolean = false
+  submitClassrooms:boolean = false
+  formstudent: any
+  formteacher:any
+  formclassrooms:any
   constructor(public formbuilder: FormBuilder, public callapi: CallapiService) {
 
-    this.forminput = this.formbuilder.group({
-      studentID:[null],
+    this.formstudent = this.formbuilder.group({
+      studentId:[null],
       studentName: [null, Validators.required],
       studentTel: [null, [Validators.required, Validators.pattern('[0-9]*')]],
       studentAge: [null, [Validators.required, Validators.pattern('[0-9]*')]]
     })
+    this.formteacher = this.formbuilder.group({
+      teacherId:[null],
+      teacherName: [null, Validators.required],
+      teacherTel: [null, [Validators.required, Validators.pattern('[0-9]*')]],
+      subjectTaught: [null, Validators.required]
+    })
+    this.formclassrooms = this.formbuilder.group({
+      classroomId:[null],
+      classroomName: [null, Validators.required],
+      classStudent: [null],
+      classTeacher: [null]
+    })
   }
-  get formcontrol() {
-    return this.forminput.controls;
+  get formcontrolStudent() {
+    return this.formstudent.controls;
   }
-  onsubmit() {
-    this.submit = true;
-    if (this.forminput.valid) {
-      this.callapi.addDataStudent(this.forminput.value).subscribe(it =>{
+
+  get formcontrolTeacher(){
+    return this.formteacher.controls;
+  }
+
+  get formcontrolClassRooms(){
+    return this.formclassrooms.controls;
+  }
+  onsubmitStudent() {
+    this.submitStudent = true;
+    if (this.formstudent.valid) {
+      this.callapi.addDataStudent(this.formstudent.value).subscribe(it =>{
         Swal.fire({
           position: 'center',
           icon: 'success',
@@ -36,7 +60,39 @@ export class InputComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        console.log(this.forminput.value);
+        console.log(this.formstudent.value);
+      })
+    }
+  }
+  onsubmitTeacher() {
+    this.submitTeacher = true;
+    if (this.formteacher.valid) {
+      this.callapi.addDataTeacher(this.formteacher.value).subscribe(it =>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        console.log(this.formteacher.value);
+      })
+    }
+  }
+  onsubmitClassrooms(){
+    this.submitClassrooms = true;
+    console.log(this.formclassrooms.value);
+    
+    if (this.formclassrooms.valid) {
+      this.callapi.createClassrooms(this.formclassrooms.value).subscribe(it =>{
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        console.log(this.formclassrooms.value);
       })
     }
   }

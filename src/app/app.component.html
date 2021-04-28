@@ -1,73 +1,77 @@
-<div class="side-bar bg-success">
-    <div class="accordion" id="accordionExample">
-        <div class="side-group" style="margin-top: 80px;">
-            <div class="btn-group">
-                <button class="btn btn-link btn-block text-warning text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Input Item
-            </button>
+<div class="bg-secondary" style="height: 100vh;">
+    <div class="side-bar">
+        <div class="accordion" id="accordionExample">
+            <div class="side-group" style="margin-top: 90px;">
+                <div class="btn-group">
+                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Input Item
+                    </button>
+                </div>
             </div>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light" style="margin: 0;">
-                <p class="text-secondary" type="button" routerLink="input">INPUT</p>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body bg-dark" style="margin: 0;">
+                    <p class="text-light" type="button" routerLink="input">INPUT</p>
+                </div>
             </div>
-        </div>
-        <div class="side-group">
-            <div class="btn-group">
-                <button class="btn btn-link btn-block text-warning text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              Output Item
-            </button>
+            <div class="side-group">
+                <div class="btn-group">
+                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        Output Item
+                    </button>
+                </div>
             </div>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light" style="margin: 0;">
-                <p class="text-secondary" type="button" routerLink="output"> OUTPUT </p>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body bg-dark" style="margin: 0;">
+                    <p class="text-light" type="button" routerLink="output"> Student</p>
+                    <p class="text-light" type="button" routerLink="teacher"> Teacher </p>
+                    <p class="text-light" type="button" routerLink="classrooms"> Classrooms </p>
+                </div>
             </div>
-        </div>
-        <div class="side-group">
-            <div class="btn-group">
-                <button class="btn btn-link btn-block text-warning text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-              Edit Item
-            </button>
+            <div class="side-group">
+                <div class="btn-group">
+                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                        Edit Item
+                    </button>
+                </div>
             </div>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light" style="margin: 0;">
-                Edit
+            <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body bg-light" style="margin: 0;">
+                    Edit
+                </div>
             </div>
-        </div>
-        <div class="side-group">
-            <div class="btn-group">
-                <button class="btn btn-link btn-block text-warning text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-              Delete Item
-            </button>
+            <div class="side-group">
+                <div class="btn-group">
+                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                        Delete Item
+                    </button>
+                </div>
             </div>
-        </div>
-        <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body bg-light" style="margin: 0;">
-                Delete
+            <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body bg-light" style="margin: 0;">
+                    Delete
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="context-right bg-success">
-    <router-outlet></router-outlet>
-</div>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class=" collapse navbar-collapse mt-2" id="navbarSupportedContent ">
-        <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active ml-3">
-                <a class="nav-link text-light ml-3 h5" href="# ">Home </a>
-            </li>
-            <li class="nav-item active ml-3">
-                <a class="nav-link text-light h5" href="# ">Link</a>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0 ">
-            <input class="form-control mr-sm-2 " type="search " placeholder="Search " aria-label="Search ">
-            <button class="btn btn-outline-light  text-light" type="submit ">Search</button>
-        </form>
+    <div class="context-right">
+        <router-outlet></router-outlet>
     </div>
-</nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class=" collapse navbar-collapse mt-2" id="navbarSupportedContent ">
+            <ul class="navbar-nav mr-auto ">
+                <li class="nav-item active ml-3">
+                    <a class="nav-link text-light ml-3 h5" href="# ">Home </a>
+                </li>
+                <li class="nav-item active ml-3">
+                    <a class="nav-link text-light h5" href="# ">Link</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 ">
+                <input class="form-control mr-sm-2 " type="search " placeholder="Search " aria-label="Search ">
+                <button class="btn btn-outline-light  text-light" type="submit ">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>

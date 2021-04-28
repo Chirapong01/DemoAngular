@@ -1,0 +1,31 @@
+<div class="car">
+    <div class="card-header bg-primary">
+        <p class="h3 text-center text-light mt-2">Classrooms</p>
+    </div>
+    <div class="card-body" style="padding:0">
+        <table class="table table-bordered table-info text-center" style="margin: 0;">
+            <thead>
+                <tr>
+                    <th scope="col"> ID</th>
+                    <th scope="col"> ClassRoomName</th>
+                    <th scope="col"> NameStudent</th>
+                    <th scope="col"> NameTeacher</th>
+                    <th scope="col"> Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of dataAllClassrooms">
+                    <th scope="row">{{i.classroomId}}</th>
+                    <td>{{i.classroomName}}</td>
+                    <td>{{i.classStudent}}</td>
+                    <td>{{i.classTeacher}}</td>
+                    <td>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">Add</button>
+                        <button class="btn btn-danger ml-3" (click)="deleteClassrooms(i.classroomId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

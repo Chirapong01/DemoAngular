@@ -1,10 +1,6 @@
-body {
-    display: flex;
-}
-
 .context-right {
     padding: 10px;
-    padding-top: 100px;
+    padding-top: 90px;
     float: right;
     width: 85%;
     height: 100%;
@@ -13,8 +9,8 @@ body {
 .side-bar {
     float: left;
     width: 15%;
-    box-shadow: 0px 0px 2px 1px #a0ee0f;
     height: 100%;
+    padding-left: 5px;
 }
 
 .card-body {
@@ -26,11 +22,11 @@ body {
 .navbar {
     position: absolute;
     width: 100%;
-    box-shadow: 0px 0px 2px 1px #a0ee0f
+    box-shadow: 0px 0px 2px 1px #0a0a0a
 }
 
 .btn-group {
-    border: 1px solid #a0ee0f;
+    border: 1px solid #ffffff;
     width: 80%;
     height: 40px;
     margin-left: 10px;

@@ -7,13 +7,17 @@ import { InputComponent } from './input/input.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OutputComponent } from './output/output.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { TeacherComponent } from './teacher/teacher.component';
+import { ClassroomsComponent } from './classrooms/classrooms.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    OutputComponent
+    OutputComponent,
+    TeacherComponent,
+    ClassroomsComponent
   ],
   imports: [
     HttpClientModule,
