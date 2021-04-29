@@ -8,6 +8,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Tel</th>
                     <th scope="col">Subject</th>
                     <th scope="col">info</th>
                 </tr>
@@ -16,6 +17,7 @@
                 <tr *ngFor="let i of dataTeacher">
                     <th scope="row">{{i.teacherId}}</th>
                     <td>{{i.teacherName}}</td>
+                    <td>{{i.teacherTel}}</td>
                     <td>{{i.subjectTaught}}</td>
                     <td>
                         <button class="btn btn-primary" (click)="getIdTeacher(i.teacherId)" data-toggle="modal" data-target="#exampleModalCenter"> Edit</button>

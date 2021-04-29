@@ -1,4 +1,4 @@
-<div class="bg-secondary" style="height: 100vh;">
+<div class="bg-dark " style="height: 100vh; overflow: auto;">
     <div class="side-bar">
         <div class="accordion" id="accordionExample">
             <div class="side-group" style="margin-top: 90px;">
@@ -10,7 +10,7 @@
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body bg-dark" style="margin: 0;">
-                    <p class="text-light" type="button" routerLink="input">INPUT</p>
+                    <p class="text-light ml-2" type="button" routerLink="input">INPUT</p>
                 </div>
             </div>
             <div class="side-group">
@@ -22,9 +22,9 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body bg-dark" style="margin: 0;">
-                    <p class="text-light" type="button" routerLink="output"> Student</p>
-                    <p class="text-light" type="button" routerLink="teacher"> Teacher </p>
-                    <p class="text-light" type="button" routerLink="classrooms"> Classrooms </p>
+                    <p class="text-light ml-2" type="button" routerLink="output"> Student</p>
+                    <p class="text-light ml-2" type="button" routerLink="teacher"> Teacher </p>
+                    <p class="text-light ml-2" type="button" routerLink="classrooms"> Classrooms </p>
                 </div>
             </div>
             <div class="side-group">
@@ -54,11 +54,13 @@
         </div>
     </div>
 
-    <div class="context-right">
-        <router-outlet></router-outlet>
+    <div class="content-right">
+        <div class="content-body" style="margin-top: 90px;">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
         <div class=" collapse navbar-collapse mt-2" id="navbarSupportedContent ">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active ml-3">

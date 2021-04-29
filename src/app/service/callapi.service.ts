@@ -58,7 +58,7 @@ export class CallapiService {
   public AddTeacherInClassrooms(classroomsId:String,teacherId:string){
     return this.http.get<classrooms>(`${environment.apiUrl}Classroom/AddTeacherInClassroom/${classroomsId}/${teacherId}`)
   }
-  public AddStudentClassrooms(classroomsId:String,studentId:string){
+  public AddStudentInClassrooms(classroomsId:String,studentId:string){
     return this.http.get<classrooms>(`${environment.apiUrl}Classroom/AddStudentInClassroom/${classroomsId}/${studentId}`)
   }
   public deleteClassrooms(id:string){
