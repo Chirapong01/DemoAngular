@@ -34,7 +34,6 @@ export class OutputComponent implements OnInit {
   }
   deleteDataStudent(id: String) {
     console.log(id);
-
     Swal.fire({
       title: 'Are you sure?',
       icon: 'warning',
@@ -55,7 +54,7 @@ export class OutputComponent implements OnInit {
     })
   }
 
-  editDataStudent(studentID: String) {
+  getIdStudent(studentID: String) {
     this.callapi.getDataStudentById(studentID).subscribe(it => {
       this.dataEdit = it;
     })
@@ -68,7 +67,8 @@ export class OutputComponent implements OnInit {
         { title: 'Edit success',
           position: 'center',
           icon: 'success',
-          timer: 1000
+          timer: 1000,
+          showConfirmButton: false
         }
       )
       this.getallStudent()

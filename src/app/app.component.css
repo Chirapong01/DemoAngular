@@ -1,12 +1,12 @@
-.context-right {
+.content-right {
     padding: 10px;
-    padding-top: 90px;
     float: right;
     width: 85%;
     height: 100%;
 }
 
 .side-bar {
+    position: fixed;
     float: left;
     width: 15%;
     height: 100%;
