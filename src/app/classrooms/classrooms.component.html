@@ -1,64 +1,65 @@
-<div class="car">
-    <div class="card-header bg-primary">
-        <p class="h3 text-center text-light mt-2">Classrooms</p>
-    </div>
-    <div class="card-body" style="padding:0">
-        <table class="table table-bordered table-info text-center" style="margin: 0;">
-            <thead>
-                <tr>
-                    <th scope="col"> ID</th>
-                    <th scope="col"> ClassRoomName</th>
-                    <th scope="col"> NameStudent</th>
-                    <th scope="col"> NameTeacher</th>
-                    <th scope="col"> Info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let i of dataAllClassrooms">
-                    <th scope="row">{{i.classroomId}}</th>
-                    <td>{{i.classroomName}}</td>
-                    <!--student -->
-                    <td *ngIf="i.classStudent == undefined ">{{i.classStudent}}</td>
-                    <td *ngIf="i.classStudent != undefined ">
-                        <div *ngFor="let std of i.classStudent">{{std.studentName}}</div>
-                    </td>
-                    <!-- teacher -->
-                    <td *ngIf="i.classTeacher == undefined ">{{i.classTeacher}}</td>
-                    <td *ngIf="i.classTeacher != undefined ">
-                        <div *ngFor="let tch of i.classTeacher"> {{tch.teacherName}} </div>
-                    </td>
-                    <td>
-                        <button class="btn btn-success" (click)="getClassroomId(i.classroomId)" data-toggle="modal" data-target="#Modals">Add</button>
-                        <button class="btn btn-danger ml-3" (click)="deleteClassrooms(i.classroomId)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="card-header " style="background: rgba(0,0,0,0);">
+    <p class="h3 text-center text-light mt-2">Classrooms</p>
+</div>
+<div class="card-body" style="padding:0">
+    <table class="table table-bordered text-light text-center" style="margin: 0; background: rgba(0,0,0,0);">
+        <thead>
+            <tr>
+                <th scope="col"> ID</th>
+                <th scope="col"> ClassRoomName</th>
+                <th scope="col"> NameStudent</th>
+                <th scope="col"> NameTeacher</th>
+                <th scope="col"> Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of dataAllClassrooms">
+                <td scope="row">{{i.classroomId}}</td>
+                <td>{{i.classroomName}}</td>
+                <!--student -->
+                <td *ngIf="i.classStudent == undefined ">{{i.classStudent}}</td>
+                <td *ngIf="i.classStudent != undefined ">
+                    <div *ngFor="let std of i.classStudent">{{std.studentName}}</div>
+                </td>
+                <!-- teacher -->
+                <td *ngIf="i.classTeacher == undefined ">{{i.classTeacher}}</td>
+                <td *ngIf="i.classTeacher != undefined ">
+                    <div *ngFor="let tch of i.classTeacher"> {{tch.teacherName}} </div>
+                </td>
+                <td>
+                    <button class="btn btn-success" (click)="getClassroomId(i.classroomId)" data-toggle="modal" data-target="#Modals">Add</button>
+                    <button class="btn btn-danger ml-3" (click)="deleteClassrooms(i.classroomId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
+
 <div class="modal fade" id="Modals" role="dialog" tabindex="-1" aria-hidden="true" aria-labelledby="ModalsLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
             <form [formGroup]="formAdd" (ngSubmit)="addTeadcerAndStudent()">
-                <div class="modal-header bg-primary">
+                <div class="card-header bg-primary">
                     <h2 class="modal-title text-light" style="margin:auto" id="ModalsLabel"> Add Teacher And Student</h2>
                 </div>
-                <div class="modal-body">
+                <div class="card-body">
                     <label for="exampleFormControlSelect1"> select Teacher</label>
                     <select class="form-control mb-3" id="exampleFormControlSelect1" formControlName="classTeacher">
+                        <option value=""></option>
                         <option disabled>-----------select teacher-----------</option>
                         <option *ngFor="let tch of dataAllTeacher" [ngValue]="tch.teacherId">{{tch.teacherName}}</option>
                     </select>
                     <label for="exampleFormControlSelect1"> select Student</label>
                     <select class="form-control" id="exampleFormControlSelect1" formControlName="classStudent">
+                        <option value=""></option>
                         <option disabled>-----------select you student-----------</option>
                         <option  *ngFor="let std of dataAllStudent" [ngValue]="std.studentId" >{{std.studentName}}</option>
                     </select>
                 </div>
-                <div class="modal-footer">
+                <div class="card-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Add Data</button>
+                    <button type="submit" class="btn btn-primary ml-3">Add Data</button>
                 </div>
             </form>
         </div>

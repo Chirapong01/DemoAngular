@@ -10,6 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./output.component.css']
 })
 export class OutputComponent implements OnInit {
+  submitEdit:boolean = false
   formedit: any
   dataStudent: any
   dataEdit: any
@@ -21,7 +22,9 @@ export class OutputComponent implements OnInit {
       studentAge: [null, [Validators.required, Validators.pattern('[0-9]*')]]
     })
   }
-
+  get formcontrolStudent(){
+    return this.formedit.controls
+  } 
   ngOnInit(): void {
     this.getallStudent()
   }
@@ -61,7 +64,9 @@ export class OutputComponent implements OnInit {
 
   }
   submiteditDataStudent() {
+    this.submitEdit = true
     this.formedit.value.studentID = this.dataEdit.studentId
+   if(this.formedit.valid){
     this.callapi.editDataStudent(this.formedit.value).subscribe(i => {
       Swal.fire(
         { title: 'Edit success',
@@ -74,6 +79,7 @@ export class OutputComponent implements OnInit {
       this.getallStudent()
     })
 
+   }
   }
 
 }
