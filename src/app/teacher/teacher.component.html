@@ -1,63 +1,70 @@
-<div class="card">
-    <div class="card-header bg-primary">
-        <p class="h3 text-center text-light mt-2">Table Teacher</p>
-    </div>
-    <div class="card-body" style="padding: 0;">
-        <table class="table table-bordered table-info text-center" style="margin: 0;">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Tel</th>
-                    <th scope="col">Subject</th>
-                    <th scope="col">info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let i of dataTeacher">
-                    <th scope="row">{{i.teacherId}}</th>
-                    <td>{{i.teacherName}}</td>
-                    <td>{{i.teacherTel}}</td>
-                    <td>{{i.subjectTaught}}</td>
-                    <td>
-                        <button class="btn btn-primary" (click)="getIdTeacher(i.teacherId)" data-toggle="modal" data-target="#exampleModalCenter"> Edit</button>
-                        <button class="btn btn-danger ml-3" (click)="deleteDataTeacher(i.teacherId)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <form [formGroup]="formedit" (ngSubmit)="submitEditDataTeacher()">
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="card">
-                                <div class="card-header">
-                                    Edit
+<div class="card-header" style=" background: rgba(255, 255, 255, 0);">
+    <p class="h3 text-center text-light mt-2">Table Teacher</p>
+</div>
+<div class="card-body" style="padding: 0;">
+    <table class="table table-bordered text-light text-center" style="margin: 0; background: rgba(255, 255, 255, 0);">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Tel</th>
+                <th scope="col">Subject</th>
+                <th scope="col">info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of dataTeacher">
+                <td scope="row">{{i.teacherId}}</td>
+                <td>{{i.teacherName}}</td>
+                <td>{{i.teacherTel}}</td>
+                <td>{{i.subjectTaught}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="getIdTeacher(i.teacherId)" data-toggle="modal" data-target="#exampleModalCenter"> Edit</button>
+                    <button class="btn btn-danger ml-3" (click)="deleteDataTeacher(i.teacherId)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<form [formGroup]="formedit" (ngSubmit)="submitEditDataTeacher()">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="padding: 0;">
+
+                    <div class="card-header bg-primary">
+                        <h1 class="text-center text-light mt-3">Edit Teacher</h1>
+                    </div>
+                    <div class="card-body" *ngIf="dataEdit != undefined">
+                        <p class="text-left">teacherName</p>
+                        <input formControlName="teacherName" [(ngModel)]="dataEdit.teacherName" type="text" class="form-control mb-2" [ngClass]="{'is-invalid': submitEdit && formcontrolTeacher.teacherName.errors}">
+                        <div *ngIf="submitEdit && formcontrolTeacher.teacherName.errors" class="invalid-feedback">
+                            <div *ngIf="formcontrolTeacher.teacherName.errors.required"> required name</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-left">teacherTel</p>
+                                <input formControlName="teacherTel" [(ngModel)]="dataEdit.teacherTel" type="text" class="form-control" [ngClass]="{'is-invalid': submitEdit && formcontrolTeacher.teacherTel.errors}">
+                                <div *ngIf="submitEdit && formcontrolTeacher.teacherTel.errors" class="invalid-feedback">
+                                    <div *ngIf="formcontrolTeacher.teacherTel.errors.required"> required tel</div>
+                                    <div *ngIf="formcontrolTeacher.teacherTel.errors.pattern"> number only</div>
                                 </div>
-                                <div class="card-body" *ngIf="dataEdit != undefined">
-                                    <p class="text-left">teacherName</p>
-                                    <input formControlName="teacherName" [(ngModel)]="dataEdit.teacherName" type="text" class="form-control mb-2">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="text-left">teacherTel</p>
-                                            <input formControlName="teacherTel" [(ngModel)]="dataEdit.teacherTel" type="text" class="form-control">
-                                        </div>
-                                        <div class="col">
-                                            <p class="text-left"> subjectTaught</p>
-                                            <input formControlName="subjectTaught" [(ngModel)]="dataEdit.subjectTaught" type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary mr-3">Save changes</button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            <div class="col">
+                                <p class="text-left"> subjectTaught</p>
+                                <input formControlName="subjectTaught" [(ngModel)]="dataEdit.subjectTaught" type="text" class="form-control" [ngClass]="{'is-invalid': submitEdit && formcontrolTeacher.subjectTaught.errors}">
+                                <div *ngIf="submitEdit && formcontrolTeacher.subjectTaught.errors" class="invalid-feedback">
+                                    <div *ngIf="formcontrolTeacher.subjectTaught.errors.required"> required subject</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary ml-3">Save changes</button>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>

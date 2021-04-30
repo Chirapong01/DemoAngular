@@ -8,6 +8,7 @@ import Swal from 'sweetalert2'
   styleUrls: ['./teacher.component.css']
 })
 export class TeacherComponent implements OnInit {
+  submitEdit:boolean = false
   formedit: any
   dataTeacher: any
   dataEdit:any
@@ -21,7 +22,9 @@ export class TeacherComponent implements OnInit {
       }
     )
   }
-
+  get formcontrolTeacher(){
+    return this.formedit.controls
+  }
   ngOnInit(): void {
     this.getDataTeacher();
   }
@@ -59,19 +62,22 @@ export class TeacherComponent implements OnInit {
   }
 
   submitEditDataTeacher(){
+    this.submitEdit = true
     this.formedit.value.teacherId = this.dataEdit.teacherId
-    this.callapi.editDataTeacher(this.formedit.value).subscribe(i=>{
-      Swal.fire(
-        {
-          position: 'center',
-          icon:'success',
-          title: 'Edit Success',
-          timer: 1000,
-          showConfirmButton: false
-        }
-        )
-      this.getDataTeacher()
-     
-    })
+    if(this.formedit.valid){
+      this.callapi.editDataTeacher(this.formedit.value).subscribe(i=>{
+        Swal.fire(
+          {
+            position: 'center',
+            icon:'success',
+            title: 'Edit Success',
+            timer: 1000,
+            showConfirmButton: false
+          }
+          )
+        this.getDataTeacher()
+       
+      })
+    }
   }
 }
