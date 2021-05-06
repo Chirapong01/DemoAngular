@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { CallapiService } from '../service/callapi.service';
 import Swal from 'sweetalert2'
 @Component({
@@ -65,14 +65,24 @@ export class ClassroomsComponent implements OnInit {
 
     if (this.formAdd.value.classTeacher != null) { this.callapi.AddTeacherInClassrooms(this.formAdd.value.classroomId, this.formAdd.value.classTeacher).subscribe(i => { this.getAllDataClassrooms() }) }
     if (this.formAdd.value.classStudent != null) { this.callapi.AddStudentInClassrooms(this.formAdd.value.classroomId, this.formAdd.value.classStudent).subscribe(i => { this.getAllDataClassrooms() }) }
-    Swal.fire({
-      title:'add success',
-      icon:'success',
-      position:'center',
-      timer:1000,
-      showConfirmButton:false
+    if (this.formAdd.value.classTeacher != null || this.formAdd.value.classStudent != null) {
+      Swal.fire({
+        title: 'add success',
+        icon: 'success',
+        position: 'center',
+        timer: 1000,
+        showConfirmButton: false
 
-    })
+      })
+    }else{
+      Swal.fire({
+        title: 'please select data',
+        icon: 'error',
+        position: 'center',
+        timer: 700,
+        showConfirmButton: false
+      })
+    }
   }
   deleteClassrooms(id: string) {
     Swal.fire({

@@ -1,5 +1,7 @@
 <div class="container-fluid">
     <div class="row">
+
+        <!-- Student -->
         <div class="col">
             <form [formGroup]="formstudent" (ngSubmit)="onsubmitStudent()">
                 <div class="card" style="overflow: hidden;">
@@ -38,6 +40,8 @@
                 </div>
             </form>
         </div>
+
+        <!-- teacher -->
         <div class="col">
             <form [formGroup]="formteacher" (ngSubmit)="onsubmitTeacher()">
                 <div class="card" style="overflow: hidden;">
@@ -76,6 +80,8 @@
             </form>
         </div>
     </div>
+
+    <!-- classrooms -->
     <form [formGroup]="formclassrooms" (ngSubmit)="onsubmitClassrooms()">
         <div class="card" style="overflow: hidden; margin-top: 10px;">
             <div class="card-header bg-primary">

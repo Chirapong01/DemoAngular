@@ -1,6 +1,6 @@
 <div class="bg-dark " style="height: 100vh; overflow: auto;">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark sticky-top">
-        <div class=" collapse navbar-collapse mt-2" id="navbarSupportedContent ">
+        <div class="collapse navbar-collapse mt-2">
             <ul class="navbar-nav mr-auto ">
                 <li class="nav-item active ml-3">
                     <a class="nav-link text-light ml-3 h5" href="# ">Home </a>
@@ -15,43 +15,36 @@
             </form>
         </div>
     </nav>
+
     <div class="side-bar">
         <div class="accordion" id="accordionExample">
-            <div class="side-group">
-                <div class="btn-group">
-                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Input Item
-                    </button>
-                </div>
+            <div class="btn-group mt-3">
+                <button class="btn btn-link btn-block  text-light text-center " type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                           <div class="text-group"> Input Item</div>
+                        </button>
             </div>
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body bg-dark" style="margin: 0;">
+                <div class="card-body bg-dark mt-2" style="margin: 0;">
                     <p class="text-light ml-2" type="button" routerLink="input">INPUT</p>
                 </div>
             </div>
-            <div class="side-group">
-                <div class="btn-group">
-                    <button class="btn btn-link btn-block  text-light text-center  dropdown-toggle" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                        Output Item
-                    </button>
-                </div>
+            <div class="btn-group mt-3">
+                <button class="btn btn-link btn-block  text-light text-center " type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">            
+                            <div class="text-group">Output Item</div>
+                        </button>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body bg-dark" style="margin: 0;">
+                <div class="card-body bg-dark mt-2" style="margin: 0;">
                     <p class="text-light ml-2" type="button" routerLink="output"> Student</p>
                     <p class="text-light ml-2" type="button" routerLink="teacher"> Teacher </p>
                     <p class="text-light ml-2" type="button" routerLink="classrooms"> Classrooms </p>
                 </div>
             </div>
-
         </div>
     </div>
-
     <div class="content-right" style="margin-top: -90px;">
         <div class="content-body" style="margin-top: 90px;">
             <router-outlet></router-outlet>
         </div>
     </div>
-
-
 </div>
